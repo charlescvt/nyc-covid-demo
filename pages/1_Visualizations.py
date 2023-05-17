@@ -241,11 +241,12 @@ def render_bar():
     # Group by borough and calculate the average daily entries
     data['date'] = data['date'].dt.date
     bar_data = data.groupby("borough", as_index=False)["entries"].mean()
+    bar_data['entries'] = bar_data['entries'].round(0).astype(int)
 
     # Create the bar plot
     fig_bar = px.bar(bar_data, x='borough', y='entries',
-                     title='Average Daily Entries per Borough',
-                     labels={'entries': 'Average Daily Entries', 'borough': 'Borough'},
+                     title=' Average Station Daily Entries per Borough',
+                     labels={'entries': 'Daily Entries', 'borough': 'Borough'},
                      )
 
     # Adjust y-axis range according to Manhattan
