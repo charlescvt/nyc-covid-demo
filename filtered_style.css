@@ -1,0 +1,41 @@
+/* st.tabs */
+.st-co {
+  padding-right: 10px !important;
+}
+
+.st-cn {
+  padding-left: 10px !important;
+}
+
+.st-gs {
+  gap: 0rem !important;
+}
+
+.st-et {
+  gap: 0rem;
+}
+
+/* Sidebar Logo */
+
+[data-testid="stSidebarNav"] {
+  background-image: url(https://www.cybersyn.com/wp-content/uploads/2023/02/logo.svg);
+  background-repeat: no-repeat;
+  padding-top: 30px;
+  padding-bottom: 40;
+  background-position: 30px 40px;
+}
+
+ /* Page background */
+ [data-testid="stAppViewContainer"] {
+  background: linear-gradient(#291B56, black);
+}
+
+/* Header */
+[data-testid="stHeader"] {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+/* Side Bar */
+[data-testid="stSidebar"] > div:first-child {
+  background: linear-gradient(black, #11061f);
+}

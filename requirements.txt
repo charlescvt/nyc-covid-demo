@@ -1,0 +1,9 @@
+pandas
+numpy
+pydeck
+snowflake-connector-python
+altair
+plotly
+streamlit-lottie
+st-clickable-images
+st-pages
