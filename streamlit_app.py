@@ -139,7 +139,7 @@ def load_chart_data():
     date_format = "%Y-%m-%d"
     data['date'] = pd.to_datetime(data['date'], format = date_format)
     data = data[['stop_name', 'date', 'entries', 'line', 'borough', 'daytime_routes', 'division',
-        'structure', 'gtfs_longitude', 'gtfs_latitude', 'complex_id']]
+        'structure', 'gtfs_longitude', 'gtfs_latitude']]
 
     # Filter the data based on the selected date range
     data['date'] = pd.to_datetime(data['date'])
