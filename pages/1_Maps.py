@@ -239,9 +239,13 @@ def dynamic_map():
 
     year_month_day_values = [(d.year, d.month, d.day) for d in counts_df.index if start_date <= d <= end_date]
     year, month, day = year_month_day_values[0]
+    
 
+    
+    st.write("### Dynamic Map: Daily Entries per Station in NYC")
+    st.write("---")
+    
     # Setup presentation widgets and placeholders
-
     col1, col2 = st.columns([5,3])
 
     col2.write("#")
@@ -252,15 +256,13 @@ def dynamic_map():
     date_value = st.empty()
     day_slider = st.empty()
 
-    title_placeholder = st.empty()
-    st.write("---")
+  
     subtitle_placeholder = col1.empty()
     map_placeholder = col1.empty()
     date_placeholder = col2.empty()
     slider_placeholder = col2.empty()
 
 
-    title_placeholder.write("### Dynamic Map: Daily Entries per Station in NYC")
 
 
     def render_slider(year, month, day):
