@@ -103,13 +103,17 @@ with st.container():
 
 
 # Dataset description
-with st.container():
+if selected_display == "Time Series Chart":
 
     st.markdown("""
-    The Metropolitan Transportation Authority (MTA) collects data from the turnstiles
-    in its subway stations to provide an overall view of traffic in NYC public transport. \n
+    The Metropolitan Transportation Authority (MTA) collects data from NYC subway turnstiles
+    which provide an overall view of traffic in the city's public transport. 
+    
+    This dataset focuses on the period of January to June 2020, offering a quantitative understanding of 
+    the effect that the COVID-19 pandemic had on those dynamics. \n
+    
     The raw data can be found [here](http://web.mta.info/developers/turnstile.html)
-    but we recommend you check out our cleaned dataset below. It's free!
+    but we recommend you explore our cleaned dataset below. It's free!
     """)
 
 
@@ -437,6 +441,7 @@ def render_scatter():
 # Create a Streamlit menu to choose the display
 
 if selected_display == "Time Series Chart":
+    st.write("### Time Series Chart")
     render_df_chart()
 
 if selected_display == "Borough Segmentation":
