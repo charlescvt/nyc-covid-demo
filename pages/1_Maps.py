@@ -16,7 +16,6 @@ import json
 
 # Functions
 
-
 # DYN MAP
 @st.cache_data
 def load_data():
@@ -96,11 +95,10 @@ st.session_state.end_date = end_date
 # Introduction
 
 st.write("# Cybersyn: MTA Turnstile Dataset")
-
 st.write("###")
 st.write("---")
 
-        
+
 data_df, coords_df, counts_df_df = load_data()
 
 # Defining each graph's function
@@ -117,30 +115,23 @@ def render_df_map():
 
     filtered_map_df = filtered_map_df[filtered_map_df["date"].between(start_date, end_date)]
 
-    filtered_map_df = filtered_map_df.groupby("NTACode").agg({
-        'NTAName': 'first',
-        'borough': 'first',
-        'entries': 'sum',
-        'population': 'last',
-        'entries_ratio': 'mean',
-        'geometry': 'first'
-    }).reset_index()
 
-    # Create a dictionary to store the selected filter values
-    selected_filters = {
-        'borough': []
-    }
+    ##################################
+
+    # Filters
 
     # Create columns for select boxes
-    column_list = st.columns(3)
+    column_list = st.columns([5,5,5,3])
 
-    # Create select boxes for each filter
-    for i, column in enumerate(selected_filters.keys()):
-        selected_filters[column] = column_list[0].multiselect(
-            f"Select {column}",
-            options=list(sorted(filtered_map_df[column].dropna().unique())),
-            default=[]
-        )
+
+    selected_boroughs = column_list[0].multiselect(
+    "Select borough",
+    options=sorted(filtered_map_df['borough'].dropna().unique()),
+    default=[]
+    )
+
+    #######
+    # Getting coordinates of selected borough to zoom map
 
     centroid_coordinates = {
     'Bronx': (40.8448, -73.8648),
@@ -150,42 +141,58 @@ def render_df_map():
     'Staten Island': (40.5795, -74.1502)
     }
 
-    selected_boroughs = selected_filters['borough']
+    # Calculating the centroid
     if selected_boroughs:
-        centroid_lat_list = []
-        centroid_lon_list = []
+        total_lat = total_lon = 0
         for borough in selected_boroughs:
             if borough in centroid_coordinates:
-                centroid_lat, centroid_lon = centroid_coordinates[borough]
-                centroid_lat_list.append(centroid_lat)
-                centroid_lon_list.append(centroid_lon)
-        if centroid_lat_list and centroid_lon_list:
-            centroid_lat = sum(centroid_lat_list) / len(centroid_lat_list)
-            centroid_lon = sum(centroid_lon_list) / len(centroid_lon_list)
-        else:
-            centroid_lat, centroid_lon = 40.7128, -74.0060  # Default to New York
+                lat, lon = centroid_coordinates[borough]
+                total_lat += lat
+                total_lon += lon
+        centroid_lat = total_lat / len(selected_boroughs)
+        centroid_lon = total_lon / len(selected_boroughs)
     else:
         centroid_lat, centroid_lon = 40.7128, -74.0060  # Default to New York
 
+    # Filtering the dataframe
+    if selected_boroughs:
+        filtered_map_df = filtered_map_df[filtered_map_df['borough'].isin(selected_boroughs)]
 
-    for column, values in selected_filters.items():
-        if values:
-            filtered_map_df = filtered_map_df[filtered_map_df[column].isin(values)]
 
 
-    # Create metrics select_box and variable for map color paramater
+
+    ########
+    # Select the metric to influence the map's color scale
     metrics = {"Entries": "entries",
                "Population": "population",
                "Log-Ratio of Entries / Population (parks & cemiteries not included)": "entries_ratio"}
     selected_metric = column_list[1].selectbox("Choose a metric", list(metrics.keys()))
 
-
-    # Create stations to exclude select_box (mainly to remove outliers)
+    #######
+    # Select any station to exclue (outliers mess with the coloring)
     stations = filtered_map_df.sort_values("entries", ascending=False).NTAName.unique()
     selected_exclude = column_list[2].multiselect("Exclude a station",options=stations)
+
     # Apply station filter to dataframe
     filtered_map_df = filtered_map_df[~filtered_map_df['NTAName'].isin(selected_exclude)].reset_index(drop=True)
 
+    som_options = {"Sum": "sum",
+                   "Mean": "mean"}
+
+    #######
+    # Select sum or mean for aggregation of entries over the selected period
+    st.session_state.sum_or_mean = column_list[3].selectbox("Sum or Mean", list(som_options.keys()))
+
+
+
+    # Group the dataframe to map all selected fields over the date interval (apply sum_or_mean option)
+    filtered_map_df = filtered_map_df.groupby("NTACode").agg({
+        'NTAName': 'first',
+        'borough': 'first',
+        'entries': som_options[st.session_state.sum_or_mean] if st.session_state.sum_or_mean in som_options else 'sum',
+        'population': 'last',
+        'entries_ratio': 'mean',
+        'geometry': 'first'}).reset_index()
 
     # Load GeoJSON file
     with open("input/nyc_nta.json") as f:
@@ -195,7 +202,7 @@ def render_df_map():
     for feature in geojson["features"]:
         feature['id'] = feature['properties']['NTACode']  # adjust 'NTACode' to match the data
 
-    # Set a zoom if only one borough selected
+    # Set a zoom if only one borough selected, zoom back out if more
     map_zoom = 9
     if len(selected_boroughs) == 1:
         map_zoom = 9.5
@@ -239,12 +246,12 @@ def dynamic_map():
 
     year_month_day_values = [(d.year, d.month, d.day) for d in counts_df.index if start_date <= d <= end_date]
     year, month, day = year_month_day_values[0]
-    
 
-    
+    # Setup presentation widgets and placeholders
+
     st.write("### Dynamic Map: daily entries per station in NYC")
     st.write("---")
-    
+
     # Setup presentation widgets and placeholders
     col1, col2 = st.columns([5,3])
 
@@ -259,8 +266,6 @@ def dynamic_map():
     map_placeholder = col1.empty()
     date_placeholder = col2.empty()
     slider_placeholder = col2.empty()
-
-
 
 
     def render_slider(year, month, day):
@@ -380,7 +385,7 @@ def dynamic_map():
 # Map rendering function
 
 if selected_display == "Neighborhood Map":
-    st.write("### Neighborhood Map: entries per neighborhood over a period of time.")
+    st.write("### Neighborhood Map: Entries per neighborhood over a period of time")
     st.write("---")
     render_df_map()
 
