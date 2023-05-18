@@ -62,10 +62,10 @@ st.sidebar.header("Parameters")
 ################################################
 
 # Sidebar parameters and their session state
-
+date_format = "%Y-%m-%d"
 # Date input
-initial_end_date = pd.to_datetime("06-30-2020")
-initial_start_date = pd.to_datetime("01-01-2020")
+initial_end_date = pd.to_datetime("2020-06-30", format = date_format)
+initial_start_date = pd.to_datetime("2020-01-01", format = date_format)
 
 # Initialize session_state variables
 if 'start_date' not in st.session_state:
@@ -81,12 +81,12 @@ selected_display = st.sidebar.selectbox('Select display', menu_options)
 st.sidebar.write("---")
 
 start_date = pd.to_datetime(st.sidebar.date_input('Start Date:', value=st.session_state.start_date,
-                                min_value=pd.to_datetime("01-01-2020"),
+                                min_value=initial_start_date,
                                 max_value=st.session_state.end_date - timedelta(days=1)))
 
 end_date = pd.to_datetime(st.sidebar.date_input('Select an end start:', value=st.session_state.end_date,
                                 min_value=start_date + timedelta(days=1),
-                                max_value=pd.to_datetime("06-30-2020")))
+                                max_value=initial_end_date))
 
 st.sidebar.text("")
 
@@ -116,7 +116,7 @@ def render_df_map():
     map_df = load_map_data_daily()
 
     filtered_map_df = map_df.copy()
-    filtered_map_df['date'] = pd.to_datetime(filtered_map_df['date'])
+    filtered_map_df['date'] = pd.to_datetime(filtered_map_df['date'], format = date_format)
 
     filtered_map_df = filtered_map_df[filtered_map_df["date"].between(start_date, end_date)]
 
