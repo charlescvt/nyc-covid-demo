@@ -250,7 +250,6 @@ def dynamic_map():
 
     col2.write("#")
     col2.write("#")
-    col2.write("#")
     col2.write("---")
 
     date_value = st.empty()
@@ -314,7 +313,7 @@ def dynamic_map():
                     longitude=display_counts.gtfs_longitude.mean(),
                     zoom=9.8,
                     pitch=40,
-                    height=680,
+                    height=630,
                     width=550
                 ),
                 # Add a layer to the view
