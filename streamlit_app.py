@@ -308,7 +308,7 @@ def borough_sunburst():
             st.write("---")
             st.write("### Stations by borough")
             top_n = st.selectbox('Select the number of top stations to keep:', [i*5 for i in range(1,7)])
-            st.write("_Hint: Don't hesitate to click on a borough for focus_")
+            st.write("_Hint: Don't hesitate to click on a borough_")
             st.write("---")
 
     with col1:
