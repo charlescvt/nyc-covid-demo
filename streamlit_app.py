@@ -70,7 +70,7 @@ if 'selected_stop_name' not in st.session_state:
 if 'selected_division' not in st.session_state:
     st.session_state.selected_division = ''
 
-display_options = ['Chart', 'Borough Segmentation']
+display_options = ['Time Series Chart', 'Borough Segmentation']
 selected_display = st.sidebar.selectbox('Select display', display_options)
 
 st.sidebar.write("---")
