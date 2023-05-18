@@ -114,6 +114,9 @@ if selected_display == "Time Series Chart":
     The raw data can be found [here](http://web.mta.info/developers/turnstile.html)
     but we recommend you explore our cleaned dataset below. It's free!
     """)
+    a,b,c,d,e,f = st.columns([1,2,2,1,1,1])
+    with c:
+        st.markdown("### Explore the Data")
 
 
 ################################################
@@ -143,10 +146,6 @@ def load_chart_data():
 st.text("")
 st.text("")
 st.text("")
-
-a,b,c,d,e,f = st.columns([1,2,2,1,1,1])
-with c:
-    st.markdown("### Explore the Data")
 
 st.write("---")
 
@@ -441,7 +440,6 @@ def render_scatter():
 
 if selected_display == "Time Series Chart":
     st.write("### Time Series Chart")
-    st.write("Use this plot to visualize and compare traffic in according to filters of your choosing.")
     render_df_chart()
 
 if selected_display == "Borough Segmentation":
