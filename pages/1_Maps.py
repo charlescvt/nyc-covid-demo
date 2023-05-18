@@ -4,6 +4,7 @@ import pandas as pd
 import pydeck as pdk
 import altair as alt
 import plotly.express as px
+from PIL import Image
 import random
 import time
 from datetime import datetime as dt, timedelta
