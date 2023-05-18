@@ -44,7 +44,10 @@ def load_map_data_daily():
 # Page parameters
 
 # Setup page layout
-st.set_page_config(layout="wide", page_title="Cybersyn - NYC Subway Traffic Dataset")
+icon = Image.open("objects/cybersyn_icon.png")
+
+st.set_page_config(page_title="Cybersyn - NYC Subway Traffic Dataset",
+                   layout="wide", page_icon=icon)
 
 
 # Set Body, Header and Sidebar background
