@@ -1,6 +1,5 @@
 import numpy as np
 import streamlit as st
-import streamlit_toggle as tog
 import pandas as pd
 import pydeck as pdk
 import altair as alt
