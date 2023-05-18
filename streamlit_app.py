@@ -436,7 +436,7 @@ def render_scatter():
 
 # Create a Streamlit menu to choose the display
 
-if selected_display == "Chart":
+if selected_display == "Time Series Chart":
     render_df_chart()
 
 if selected_display == "Borough Segmentation":
