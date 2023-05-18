@@ -98,7 +98,7 @@ st.session_state.end_date = end_date
 with st.container():
     one, two = st.columns([5,2])
     with one:
-        st.write("#  MTA Turnstile Dataset")
+        st.write("#  Cybersyn: MTA Turnstile Dataset")
         st.markdown("""<h3> Understanding the early impact of COVID-19 <br> on NYC Public Transportation</h3>""", unsafe_allow_html=True)
 
 
