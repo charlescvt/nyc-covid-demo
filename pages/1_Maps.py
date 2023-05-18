@@ -31,6 +31,7 @@ def load_data():
     return data, coords, counts_df
 
 # CHORO MAP
+@st.cache_data
 def load_map_data_daily():
     map_data = pd.read_csv('output/nta_fulldata_d.csv')
 
