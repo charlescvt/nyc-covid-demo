@@ -181,7 +181,8 @@ def render_df_map():
 
     #######
     # Select sum or mean for aggregation of entries over the selected period
-    st.session_state.sum_or_mean = column_list[3].selectbox("Sum or Mean", list(som_options.keys()))
+    if selected_metric== "Entries":
+        st.session_state.sum_or_mean = column_list[3].selectbox("Sum or Mean", list(som_options.keys()))
 
     # Group the dataframe to map all selected fields over the date interval (apply sum_or_mean option)
     filtered_map_df = filtered_map_df.groupby("NTACode").agg({
@@ -252,7 +253,7 @@ def dynamic_map():
 
     # Setup presentation widgets and placeholders
 
-    st.write("### Dynamic Map: daily entries per station in NYC")
+    st.write("### Dynamic Map: Daily entries per station in NYC")
     st.write("---")
 
     # Setup presentation widgets and placeholders
