@@ -23,7 +23,6 @@ import time
 # import streamlit.components.v1 as components
 
 
-
 # Page parameters
 
 # Set the page layout
@@ -106,10 +105,10 @@ if selected_display == "Time Series Chart":
     st.markdown("""<h3> Understanding the early impact of COVID-19 on NYC Public Transportation</h3>""", unsafe_allow_html=True)
 
     st.markdown("""
-    The Metropolitan Transportation Authority (MTA) collects data from NYC subway turnstiles which
-    provide an overall view of traffic in the city's public transport. This dataset combines those data
+    The Metropolitan Transportation Authority (MTA) collects data from subway turnstiles which
+    provide an overall view of traffic in New York's public transport. This dataset combines those data
     with geospatial and population data, focusing on the period of January to June 2020 to offer a quantitative 
-    understanding of the effect that the COVID-19 pandemic had on those traffic dynamics. \n
+    understanding of the effect that the COVID-19 pandemic had on the city's traffic dynamics. \n
     
     The raw data can be found [here](http://web.mta.info/developers/turnstile.html)
     but we recommend you explore our cleaned dataset below. It's free!
@@ -118,6 +117,7 @@ if selected_display == "Time Series Chart":
     st.text("")
     st.text("")
     st.text("")
+    st.write("---")
     
     a,b,c,d,e,f = st.columns([1,2,2,1,1,1])
     with c:
