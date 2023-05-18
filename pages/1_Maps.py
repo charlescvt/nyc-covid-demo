@@ -21,7 +21,7 @@ import json
 @st.cache_data
 def load_data():
     # coordinates for each station
-    data = pd.read_csv('input/clean_data.csv', low_memory=False, parse_dates=['date'])
+    data = pd.read_csv('input/clean_data.csv', low_memory=False)
     coords = data[["gtfs_latitude", "gtfs_longitude", "stop_name"]]
 
     # pivot table showing daily entries for each station
@@ -197,7 +197,7 @@ def render_df_map():
         'population': 'last',
         'entries_ratio': 'mean',
         'geometry': 'first'}).reset_index()
-    
+
     # Reordering columns
     filtered_map_df = filtered_map_df[["NTAName", "borough", "entries",
                                        "population", "entries_ratio", "NTACode",
