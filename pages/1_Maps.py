@@ -95,14 +95,12 @@ st.session_state.end_date = end_date
 
 # Introduction
 
-with st.container():
+st.write("# Cybersyn: MTA Turnstile Dataset")
 
-    one, two = st.columns(2)
+st.write("###")
+st.write("---")
 
-    with one:
-        st.write("# MTA Turnstile Dataset")
-
-
+        
 data_df, coords_df, counts_df_df = load_data()
 
 # Defining each graph's function
