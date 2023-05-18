@@ -242,8 +242,7 @@ def dynamic_map():
     
 
     
-    st.write("### Dynamic Map")
-    st.write("##### Daily Entries per Station in NYC")
+    st.write("### Dynamic Map: daily entries per station in NYC")
     st.write("---")
     
     # Setup presentation widgets and placeholders
@@ -382,8 +381,7 @@ def dynamic_map():
 # Map rendering function
 
 if selected_display == "Neighborhood Map":
-    st.write("### Neighborhood Map")
-    st.write("##### Number of entries per neighborhood over a period of time.")
+    st.write("### Neighborhood Map: entries per neighborhood over a period of time.")
     st.write("---")
     render_df_map()
 
