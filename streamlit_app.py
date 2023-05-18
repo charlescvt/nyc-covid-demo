@@ -106,10 +106,10 @@ with st.container():
 if selected_display == "Time Series Chart":
 
     st.markdown("""
-    The Metropolitan Transportation Authority (MTA) collects data from NYC subway turnstiles
-    which provide an overall view of traffic in the city's public transport.This dataset focuses 
-    on the period of January to June 2020, offering a quantitative understanding of 
-    the effect that the COVID-19 pandemic had on those dynamics. \n
+    The Metropolitan Transportation Authority (MTA) collects data from NYC subway turnstiles which
+    provide an overall view of traffic in the city's public transport. This dataset combines those data
+    with geospatial and population data, focusing on the period of January to June 2020 to offer a quantitative 
+    understanding of the effect that the COVID-19 pandemic had on those traffic dynamics. \n
     
     The raw data can be found [here](http://web.mta.info/developers/turnstile.html)
     but we recommend you explore our cleaned dataset below. It's free!
