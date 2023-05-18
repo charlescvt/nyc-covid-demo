@@ -114,11 +114,16 @@ if selected_display == "Time Series Chart":
     The raw data can be found [here](http://web.mta.info/developers/turnstile.html)
     but we recommend you explore our cleaned dataset below. It's free!
     """)
+    
+    st.text("")
+    st.text("")
+    st.text("")
+    
     a,b,c,d,e,f = st.columns([1,2,2,1,1,1])
     with c:
         st.markdown("### Explore the Data")
     
-    st.text("")
+    
     st.write("---")
 
 
@@ -146,8 +151,6 @@ def load_chart_data():
 ################################################
 ################################################
 
-st.text("")
-st.text("")
 
 # Load and cache the data that each function will copy
 data = load_chart_data()
