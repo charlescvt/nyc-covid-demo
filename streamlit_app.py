@@ -22,7 +22,6 @@ import time
 # from streamlit_lottie import st_lottie
 # import streamlit.components.v1 as components
 
-
 # Page parameters
 
 # Set the page layout
@@ -137,7 +136,8 @@ st.cache_data()
 def load_chart_data():
     # Load the data
     data = pd.read_csv('input/clean_data.csv', low_memory=False)
-    data['date'] = pd.to_datetime(data['date'])
+    date_format = "%Y-%m-%d"
+    data['date'] = pd.to_datetime(data['date'], format = date_format)
     data = data[['stop_name', 'date', 'entries', 'line', 'borough', 'daytime_routes', 'division',
         'structure', 'gtfs_longitude', 'gtfs_latitude', 'complex_id']]
 
