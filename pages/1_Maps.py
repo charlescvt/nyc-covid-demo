@@ -378,7 +378,7 @@ def dynamic_map():
 
     # Run the animation
     if animation_speed:
-        for year, month, day in cycle(year_month_day_values):
+        for year, month, day in year_month_day_values[0:15]:
             time.sleep(animation_speed)
             render_slider(year, month, day)
             render_map(year, month, day)
