@@ -117,6 +117,9 @@ if selected_display == "Time Series Chart":
     a,b,c,d,e,f = st.columns([1,2,2,1,1,1])
     with c:
         st.markdown("### Explore the Data")
+    
+    st.text("")
+    st.write("---")
 
 
 ################################################
@@ -145,9 +148,6 @@ def load_chart_data():
 
 st.text("")
 st.text("")
-st.text("")
-
-st.write("---")
 
 # Load and cache the data that each function will copy
 data = load_chart_data()
