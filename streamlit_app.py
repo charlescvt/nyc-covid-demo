@@ -441,6 +441,7 @@ def render_scatter():
 
 if selected_display == "Time Series Chart":
     st.write("### Time Series Chart")
+    st.write("Use this plot to visualize and compare traffic in according to filters of your choosing.")
     render_df_chart()
 
 if selected_display == "Borough Segmentation":
