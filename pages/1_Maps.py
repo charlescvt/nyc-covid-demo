@@ -381,7 +381,8 @@ def dynamic_map():
 # Map rendering function
 
 if selected_display == "Neighborhood Map":
-    st.write("## Neighborhood Map")
+    st.write("### Neighborhood Map")
+    st.write("Number of entries per neighborhood over a period of time.")
     render_df_map()
 
 if selected_display == "Dynamic Map":
