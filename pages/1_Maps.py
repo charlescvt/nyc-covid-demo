@@ -400,7 +400,6 @@ if selected_display == "Neighborhood Map":
 
 if selected_display == "Dynamic Map":
     animation_speed=False
-    # Set Body, Header and Sidebar background
     dynamic_map()
 
 
