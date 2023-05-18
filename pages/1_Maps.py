@@ -252,7 +252,8 @@ def dynamic_map():
     date_value = st.empty()
     day_slider = st.empty()
 
-    title_placeholder = col1.empty()
+    title_placeholder = st.empty()
+    st.write("---")
     subtitle_placeholder = col1.empty()
     map_placeholder = col1.empty()
     date_placeholder = col2.empty()
@@ -381,6 +382,7 @@ def dynamic_map():
 if selected_display == "Neighborhood Map":
     st.write("### Neighborhood Map")
     st.write("Number of entries per neighborhood over a period of time.")
+    st.write("---")
     render_df_map()
 
 if selected_display == "Dynamic Map":
