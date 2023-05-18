@@ -99,11 +99,11 @@ with st.container():
     one, two = st.columns([5,2])
     with one:
         st.write("#  Cybersyn: MTA Turnstile Dataset")
-    st.markdown("""<h3> Understanding the early impact of COVID-19 on NYC Public Transportation</h3>""", unsafe_allow_html=True)
-
-
+        
 # Dataset description
 if selected_display == "Time Series Chart":
+  
+    st.markdown("""<h3> Understanding the early impact of COVID-19 on NYC Public Transportation</h3>""", unsafe_allow_html=True)
 
     st.markdown("""
     The Metropolitan Transportation Authority (MTA) collects data from NYC subway turnstiles which
@@ -446,7 +446,10 @@ if selected_display == "Time Series Chart":
     render_df_chart()
 
 if selected_display == "Borough Segmentation":
-
+  
+    st.write("##")
+    st.write("---")
+    
     tab1, tab2 = st.tabs(["Borough Segmentation", "Graphs"])
 
     with tab1:
