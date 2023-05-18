@@ -183,8 +183,6 @@ def render_df_map():
     # Select sum or mean for aggregation of entries over the selected period
     st.session_state.sum_or_mean = column_list[3].selectbox("Sum or Mean", list(som_options.keys()))
 
-
-
     # Group the dataframe to map all selected fields over the date interval (apply sum_or_mean option)
     filtered_map_df = filtered_map_df.groupby("NTACode").agg({
         'NTAName': 'first',
@@ -193,6 +191,11 @@ def render_df_map():
         'population': 'last',
         'entries_ratio': 'mean',
         'geometry': 'first'}).reset_index()
+    
+    # Reordering columns
+    filtered_map_df = filtered_map_df[["NTAName", "borough", "entries",
+                                       "population", "entries_ratio", "NTACode",
+                                       "geometry"]]
 
     # Load GeoJSON file
     with open("input/nyc_nta.json") as f:
