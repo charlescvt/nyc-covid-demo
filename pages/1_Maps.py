@@ -406,5 +406,5 @@ if selected_display == "Dynamic Map":
 
 with st.sidebar:
     st.write("---")
-    st.write("Questions or Feedback, [Contact Us](mailto:support@cybersym.com)")
-    st.write("Created by [Cybersyn](https://app.snowflake.com/marketplace/listings/Cybersyn%2C%20Inc)")
+    st.write("Questions or Feedback, [Contact Us](mailto:cchaverot@gmail.com)")
+    st.write("Created by Bridge")
