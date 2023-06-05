@@ -25,9 +25,9 @@ import time
 # Page parameters
 
 # Set the page layout
-icon = Image.open("objects/cybersyn_icon.png")
+icon = Image.open("objects/bridge_icon.png")
 
-st.set_page_config(page_title="Cybersyn - NYC Subway Traffic Dataset",
+st.set_page_config(page_title="Bridge - NYC Subway Traffic Dataset",
                    layout="wide", page_icon=icon)
 
 # Renaming pages
@@ -96,7 +96,7 @@ st.session_state.end_date = end_date
 with st.container():
     one, two = st.columns([5,2])
     with one:
-        st.write("#  Cybersyn: MTA Turnstile Dataset")
+        st.write("#  Bridge: MTA Turnstile Dataset")
         
 # Dataset description
 if selected_display == "Time Series Chart":
@@ -468,8 +468,8 @@ if selected_display == "Borough Segmentation":
 
 with st.sidebar:
     st.write("---")
-    st.write("Questions or Feedback, [Contact Us](mailto:support@cybersym.com)")
-    st.write("Created by [Cybersyn](https://app.snowflake.com/marketplace/listings/Cybersyn%2C%20Inc)")
+    st.write("Questions or Feedback, [Contact Us](mailto:cchaverot@gmail.com)")
+    st.write("Created by Bridge")
 
 st.write("---")
 
