@@ -99,7 +99,7 @@ st.session_state.end_date = end_date
 
 # Introduction
 
-st.write("# Cybersyn: MTA Turnstile Dataset")
+st.write("# Bridge: MTA Turnstile Dataset")
 st.write("###")
 st.write("---")
 
