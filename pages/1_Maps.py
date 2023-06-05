@@ -45,9 +45,9 @@ def load_map_data_daily():
 # Page parameters
 
 # Setup page layout
-icon = Image.open("objects/cybersyn_icon.png")
+icon = Image.open("objects/bridge_icon.png")
 
-st.set_page_config(page_title="Cybersyn - NYC Subway Traffic Dataset",
+st.set_page_config(page_title="Bridge - NYC Subway Traffic Dataset",
                    layout="wide", page_icon=icon)
 
 
