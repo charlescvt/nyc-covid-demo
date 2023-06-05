@@ -18,7 +18,7 @@
 /* Sidebar Logo */
 
 [data-testid="stSidebarNav"] {
-  background-image: url(https://www.cybersyn.com/wp-content/uploads/2023/02/logo.svg);
+  background-image: url('objects/bridge.svg');
   background-repeat: no-repeat;
   padding-top: 30px;
   padding-bottom: 40;
