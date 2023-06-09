@@ -12,7 +12,8 @@ import plotly.express as px
 import plotly.graph_objects as go
 from datetime import datetime as dt, timedelta
 from streamlit_lottie import st_lottie_spinner
-from st_pages import show_pages, Page
+from st_pages import show_pages, Page, show_pages_from_config
+
 import time
 
 # import random
@@ -29,14 +30,14 @@ icon = Image.open("objects/bridge_icon.png")
 
 st.set_page_config(page_title="Bridge - NYC Subway Traffic Dataset",
                    layout="wide", page_icon=icon)
-
+show_pages_from_config()
 # Renaming pages
-show_pages(
-    [
-        Page("streamlit_app.py", "Data Hub"),
-        Page("pages/1_Maps.py", "Map Views")
-    ]
-)
+# show_pages(
+#     [
+#         Page("streamlit_app.py", "Data Hub"),
+#         Page("pages/1_Maps.py", "Map Views")
+#     ]
+# )
 
 # Import all CSS configurations
 with open("filtered_style.css") as f:
