@@ -30,14 +30,14 @@ icon = Image.open("objects/bridge_icon.png")
 
 st.set_page_config(page_title="Bridge - NYC Subway Traffic Dataset",
                    layout="wide", page_icon=icon)
-show_pages_from_config()
+# show_pages_from_config()
 # Renaming pages
-# show_pages(
-#     [
-#         Page("streamlit_app.py", "Data Hub"),
-#         Page("pages/1_Maps.py", "Map Views")
-#     ]
-# )
+show_pages(
+    [
+        Page("streamlit_app.py", "Data Hub"),
+        Page("pages/1_Maps.py", "Map Views")
+    ]
+)
 
 # Import all CSS configurations
 with open("filtered_style.css") as f:
