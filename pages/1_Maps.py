@@ -50,8 +50,6 @@ icon = Image.open("objects/bridge_icon.png")
 st.set_page_config(page_title="Bridge - NYC Subway Traffic Dataset",
                    layout="wide", page_icon=icon)
 
-show_pages_from_config()
-
 
 # Set Body, Header and Sidebar background
 with open("filtered_style.css") as f:
