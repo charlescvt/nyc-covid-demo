@@ -1,0 +1,7 @@
+[[pages]]
+path = "streamlit_app.py"
+name = "Data Hub"
+
+[[pages]]
+path = "pages/1_Maps.py"
+name = "Maps"
