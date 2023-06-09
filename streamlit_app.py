@@ -33,7 +33,7 @@ st.set_page_config(page_title="Bridge - NYC Subway Traffic Dataset",
 # Renaming pages
 show_pages(
     [
-        Page("Data_Hub.py", "The Data Hub"),
+        Page("streamlit_app.py", "Data Hub"),
         Page("pages/1_Maps.py", "Map Views")
     ]
 )
