@@ -1,4 +1,4 @@
-# Bridge: NYC Subway Traffic Dataset Visualizations
+# Bridge: NYC Subway Traffic Analysis
 
 This project provides interactive visualizations of MTA subway data during the COVID-19 pandemic. Using data from subway turnstiles, it explores traffic patterns in New York City from January to June 2020, providing insights into how the pandemic affected public transportation.
 
