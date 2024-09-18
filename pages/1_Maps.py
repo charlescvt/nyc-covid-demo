@@ -47,7 +47,7 @@ def load_map_data_daily():
 # Setup page layout
 icon = Image.open("objects/bridge_icon.png")
 
-st.set_page_config(page_title="Bridge - NYC Subway Traffic Dataset",
+st.set_page_config(page_title="Bridge - NYC Traffic Analysis",
                    layout="wide", page_icon=icon)
 
 
