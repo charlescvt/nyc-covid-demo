@@ -89,7 +89,7 @@ st.session_state.end_date = end_date
 with st.container():
     one, two = st.columns([5,2])
     with one:
-        st.write("#  Bridge: MTA Turnstile Dataset")
+        st.write("#  Bridge: MTA Traffic Analysis")
         
 # Dataset description
 if selected_display == "Time Series Chart":
