@@ -4,6 +4,8 @@ This project provides interactive visualizations of MTA subway data during the C
 
 The application is built with **Streamlit**, with interactive features like time series charts, borough segmentation, dynamic maps, and choropleth maps, allowing users to explore data through an intuitive web interface.
 
+#### You can access the demo by [clicking here](https://charlescvt-nyc-covid-demo-data-hub-hwz4d5.streamlit.app/).
+
 ## Features
 
 ### 1. **Time Series Chart**
