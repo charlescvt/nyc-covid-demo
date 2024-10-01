@@ -28,7 +28,7 @@ import time
 # Set the page layout
 icon = Image.open("objects/bridge_icon.png")
 
-st.set_page_config(page_title="Bridge - NYC Transit Analysis",
+st.set_page_config(page_title="NYC Transit Analysis",
                    layout="wide", page_icon=icon)
 
 # Import all CSS configurations
@@ -89,7 +89,7 @@ st.session_state.end_date = end_date
 with st.container():
     one, two = st.columns([5,2])
     with one:
-        st.write("#  Bridge: MTA Traffic Analysis")
+        st.write("#  MTA Traffic Analysis")
         
 # Dataset description
 if selected_display == "Time Series Chart":
@@ -462,7 +462,7 @@ if selected_display == "Borough Segmentation":
 with st.sidebar:
     st.write("---")
     st.write("Questions or Feedback, [Contact Us](mailto:cchaverot@gmail.com)")
-    st.write("Created by Bridge")
+    st.write("Created by Charles Chaverot")
 
 st.write("---")
 
