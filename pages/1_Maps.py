@@ -47,7 +47,7 @@ def load_map_data_daily():
 # Setup page layout
 icon = Image.open("objects/bridge_icon.png")
 
-st.set_page_config(page_title="Bridge - NYC Traffic Analysis",
+st.set_page_config(page_title="NYC Transit Analysis",
                    layout="wide", page_icon=icon)
 
 
@@ -99,7 +99,7 @@ st.session_state.end_date = end_date
 
 # Introduction
 
-st.write("# Bridge: MTA Turnstile Dataset")
+st.write("# NYC Transit Analysis")
 st.write("###")
 st.write("---")
 
@@ -407,4 +407,4 @@ if selected_display == "Dynamic Map":
 with st.sidebar:
     st.write("---")
     st.write("Questions or Feedback, [Contact Us](mailto:cchaverot@gmail.com)")
-    st.write("Created by Bridge")
+    st.write("Created by Charles Chaverot")
